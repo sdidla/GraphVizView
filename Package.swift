@@ -7,20 +7,21 @@ let package = Package(
     name: "GraphVizWebView",
     platforms: [
         .iOS(.v16),
-        .macCatalyst(.v16),
+        .tvOS(.v16),
         .visionOS(.v1),
+        .macCatalyst(.v16),
         .macOS(.v13)
     ],
     products: [
-        .library(name: "GraphVizWebView", targets: ["GraphVizWebView"]),
+        .library(name: "GraphVizView", targets: ["GraphVizView"]),
     ],
     targets: [
         .target(
-            name: "GraphVizWebView",
+            name: "GraphVizView",
             resources: [
-                .process("Resources")
+                .copy("Resources")
             ]
         ),
-        .testTarget(name: "GraphVizWebViewTests", dependencies: ["GraphVizWebView"]),
+        .testTarget(name: "GraphVizViewTests", dependencies: ["GraphVizView"]),
     ]
 )

@@ -1,7 +1,7 @@
 import XCTest
-@testable import GraphVizWebView
+@testable import GraphVizView
 
-final class GraphVizWebViewTests: XCTestCase {
+final class GraphVizViewTests: XCTestCase {
     func testExample() throws {
         // XCTest Documentation
         // https://developer.apple.com/documentation/xctest
