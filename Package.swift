@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "GraphVizWebView",
+    name: "GraphVizView",
     platforms: [
         .iOS(.v16),
         .tvOS(.v16),
