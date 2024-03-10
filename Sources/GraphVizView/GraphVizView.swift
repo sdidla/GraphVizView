@@ -93,3 +93,20 @@ public struct GraphVizView: AgnosticViewRepresentable {
         }
     }
 }
+
+// MARK: - Previews
+
+struct Previews: PreviewProvider {
+    static var previews: some View {
+        GraphVizView(
+            graph: """
+            digraph a {
+                A -> B
+                B -> C
+                B -> D
+            }
+            """,
+            scale: .original
+        )
+    }
+}
