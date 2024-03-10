@@ -19,7 +19,7 @@ let package = Package(
         .target(
             name: "GraphVizView",
             resources: [
-                .copy("Resources")
+                .process("Resources/viz-standalone.js")
             ]
         ),
         .testTarget(name: "GraphVizViewTests", dependencies: ["GraphVizView"]),

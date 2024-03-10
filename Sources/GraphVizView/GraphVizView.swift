@@ -2,12 +2,11 @@ import SwiftUI
 import WebKit
 
 public struct GraphVizView: AgnosticViewRepresentable {
-
     public enum Scale: Hashable {
         case original
         case relative(percentage: Float)
 
-        static var sizeToFit: Self {
+        public static var sizeToFit: Self {
             .relative(percentage: 1)
         }
     }
@@ -90,8 +89,7 @@ public struct GraphVizView: AgnosticViewRepresentable {
         }
 
         public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction) async -> WKNavigationActionPolicy {
-            return .cancel
+            .allow
         }
     }
 }
-

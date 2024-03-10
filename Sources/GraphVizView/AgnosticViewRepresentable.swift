@@ -1,11 +1,12 @@
-// Credit: https://gist.github.com/insidegui/97d821ca933c8627e7f614bc1d6b4983
+/// Inspiration and Credit
+/// https://gist.github.com/insidegui/97d821ca933c8627e7f614bc1d6b4983
 
 import SwiftUI
 
-#if os(iOS) || os(tvOS)
+#if canImport(UIKit)
 public typealias PlatformView = UIView
 public typealias PlatformViewRepresentable = UIViewRepresentable
-#elseif os(macOS)
+#elseif canImport(AppKit)
 public typealias PlatformView = NSView
 public typealias PlatformViewRepresentable = NSViewRepresentable
 #endif
@@ -19,8 +20,8 @@ public protocol AgnosticViewRepresentable: PlatformViewRepresentable {
     func updateView(_ view: ViewType, context: Context)
 }
 
-#if os(iOS) || os(tvOS) || os(visionOS)
-public extension PlatformAgnosticViewRepresentable where ViewType == UIViewType {
+#if canImport(UIKit)
+public extension AgnosticViewRepresentable where ViewType == UIViewType {
     func makeUIView(context: Context) -> UIViewType {
         makeView(context: context)
     }
@@ -29,7 +30,7 @@ public extension PlatformAgnosticViewRepresentable where ViewType == UIViewType 
         updateView(uiView, context: context)
     }
 }
-#elseif os(macOS)
+#elseif canImport(AppKit)
 public extension AgnosticViewRepresentable where ViewType == NSViewType {
     func makeNSView(context: Context) -> NSViewType {
         makeView(context: context)
