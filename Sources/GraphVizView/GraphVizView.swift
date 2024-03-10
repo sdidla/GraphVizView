@@ -100,7 +100,7 @@ struct Previews: PreviewProvider {
     static var previews: some View {
         GraphVizView(
             graph: """
-            digraph a {
+            digraph {
                 A -> B
                 B -> C
                 B -> D
